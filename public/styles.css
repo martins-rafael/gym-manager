@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #7159c1;
+    --secondary-color: #f7df1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-color);
+}
+
+header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.links {
+    font-size: 22px;
+}
+
+.links a:nth-of-type(2) {
+    margin-left: 32px;
+}
+
+.links a {
+    position: relative;
+    text-decoration: none;
+    color: #777;
+}
+
+.links a.active {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.links a:hover {
+    color: var(--primary-color);
+}
+
+.links a::after {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.links a:hover::after {
+    width: 100%;
+    transition: width 700ms ease-in-out;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 45px auto;
+    width: 800px;
+    min-height: 400px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.4);
+    animation: up 700ms ease-out;
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.details {
+    padding: 32px
+}
+
+.details .item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+}
+
+.details h3,
+.details .item div:nth-of-type(1) {
+    font-size: 14px;
+    line-height: 24px;
+    color: #777;
+}
+
+.details .item div:nth-of-type(2) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    color: var(--primary-color)
+}
+
+.details .item span,
+span.services {
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 4px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #777;
+    background-color: var(--secondary-color);
+    border-radius: 16px;
+}
+
+input,
+select {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    background-color: #f5f5f5;
+    outline: none;
+}
+
+input[type="radio"] {
+    margin-right: 4px;
+    width: initial;
+    cursor: pointer;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+a.button,
+button[type="submit"] {
+    margin-top: 32px;
+    padding: 8px 16px;
+    width: 100%;
+    font-size: 16px;
+    color: #f5f5f5;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a.button {
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+#form-delete button {
+    margin-top: 8px;
+    background-color: lightcoral;
+}
+
+.table-container {
+    box-sizing: border-box;
+    display: block;
+    padding: 40px;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+.table-container thead tr th {
+    text-align: left;
+}
+
+td,
+th {
+    padding: 16px;
+    color: #555;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+th {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+tbody tr:last-child td {
+    border: none;
+}
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span {
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 3px 1px 6px -4px #000;
+}
+
+tr a.button {
+    margin: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.table-container thead tr th:last-child {
+    text-align: center;
+}
+
+.table-container > a {
+    display: inline-block;
+    margin-left: 14px;
+    margin-bottom: 16px;
+    width: initial;
+    font-size: 14px;
+    text-transform: uppercase;
+}

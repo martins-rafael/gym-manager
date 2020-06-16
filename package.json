@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "intl": "^1.2.5",
     "method-override": "^3.0.0",
     "nunjucks": "^3.2.1",
     "pg": "^8.2.1"

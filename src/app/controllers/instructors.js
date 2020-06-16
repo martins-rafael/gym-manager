@@ -1,4 +1,3 @@
-const Intl = require('intl')
 const { age, date } = require('../../lib/utils')
 const Instructor = require('../models/Instructor')
 
@@ -29,8 +28,7 @@ module.exports = {
 
             instructor.services = instructor.services.split(',')
             instructor.age = age(instructor.birth)
-            instructor.createt_at = date(instructor.createt_at).format
-            // instructor.created_at = new Intl.DateTimeFormat('pt-BR').format(instructor.created_at)
+            instructor.created_at = date(instructor.created_at).format
 
             return res.render('instructors/show', { instructor })
         })
@@ -57,6 +55,8 @@ module.exports = {
         })
     },
     delete(req, res) {
-        return
+        Instructor.delete(req.body.id, function () {
+            return res.redirect('/instructors')
+        })
     }
 }

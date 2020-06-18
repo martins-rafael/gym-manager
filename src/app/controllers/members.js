@@ -8,7 +8,9 @@ module.exports = {
         })
     },
     create(req, res) {
-        return res.render('members/create')
+        Member.instructorsSelectOptions(function (instructorsOptions) {
+            return res.render('members/create', { instructorsOptions })
+        })
     },
     post(req, res) {
         const keys = Object.keys(req.body)
@@ -38,7 +40,9 @@ module.exports = {
 
             member.birth = date(member.birth).iso
 
-            return res.render('members/edit', { member })
+            Member.instructorsSelectOptions(function(instructorsOptions) {
+                return res.render('members/edit', { member, instructorsOptions })
+            })
         })
     },
     put(req, res) {

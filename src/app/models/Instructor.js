@@ -60,7 +60,7 @@ module.exports = {
         WHERE instructors.name ILIKE '%${filter}%'
         OR instructors.services ILIKE '%${filter}%'
         GROUP BY instructors.id
-        ORDER BY total_students`, function (err, results){
+        ORDER BY total_students`, function (err, results) {
             if (err) throw `Database error! ${err}`
 
             callback(results.rows)
@@ -97,6 +97,40 @@ module.exports = {
             if (err) throw `Database error! ${err}`
 
             callback()
+        })
+    }, paginate(params) {
+        let { filter, limit, offset, callback } = params
+
+        let query = '',
+            filterQuery = '',
+            totalQuery = `(
+                SELECT count(*) FROM instructors
+            ) AS total`
+
+        if (filter) {
+            filterQuery = `
+            WHERE instructors.name ILIKE '%${filter}%'
+            OR instructors.services ILIKE '%${filter}%'
+            `
+
+            totalQuery = `(
+                SELECT count(*) FROM instructors
+                ${filterQuery}
+            ) AS total`
+        }
+
+        query = `
+        SELECT instructors.*, ${totalQuery}, count(members) AS total_students
+        FROM instructors
+        LEFT JOIN members ON (members.instructor_id = instructors.id)
+        ${filterQuery}
+        GROUP BY instructors.id LIMIT $1 OFFSET $2
+        `
+
+        db.query(query, [limit, offset], function (err, results) {
+            if (err) throw `Database error ${err}`
+
+            callback(results.rows)
         })
     }
 }

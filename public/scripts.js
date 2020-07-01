@@ -8,7 +8,7 @@ for (let item of menuItens) {
 }
 
 //Paginação
-function pagination(totalPages, selectedPage) {
+function paginate(totalPages, selectedPage) {
     let pages = [],
         oldPage
 
@@ -32,3 +32,7 @@ function pagination(totalPages, selectedPage) {
 
     return pages
 }
+
+const pagination = document.querySelector('.pagination')
+const page = +pagination.dataset.page
+const total = +pagination.dataset.total

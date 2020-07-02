@@ -189,7 +189,8 @@ a.button {
 
 .table-container {
     box-sizing: border-box;
-    display: block;
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
     padding: 40px;
 }
 
@@ -256,8 +257,8 @@ tr a.button {
 .table-container .header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
-    margin-bottom: 32px;
+    align-self: start;
+    margin-bottom: 0;
 }
 
 .table-container .header a {
@@ -281,4 +282,22 @@ tr a.button {
 
 .table-container .header form button {
     margin: 0;
+}
+
+.table-container .pagination {
+    align-self: end;
+    justify-self: center;
+    margin: 0;
+}
+
+.pagination a,
+.pagination span {
+    margin-right: 16px;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.pagination a:hover {
+    filter: brightness(0.3);
+    border-bottom: 2px solid var(--primary-color);
 }

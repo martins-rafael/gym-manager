@@ -13,7 +13,7 @@ module.exports = {
         })
     },
     instructorsSelectOptions(callback) {
-        db.query(`SELECT id, name FROM instructors`, function(err, results) {
+        db.query(`SELECT id, name FROM instructors`, function (err, results) {
             if (err) throw `Database error! ${err}`
             callback(results.rows)
         })
@@ -58,7 +58,7 @@ module.exports = {
             FROM members
             LEFT JOIN instructors ON (instructors.id = members.instructor_id)
             WHERE members.id = $1`, [id], function (err, results) {
-                if (err) throw `Database error! ${err}`
+            if (err) throw `Database error! ${err}`
 
             callback(results.rows[0])
         })
@@ -98,10 +98,44 @@ module.exports = {
         })
     },
     delete(id, callback) {
-        db.query(`DELETE FROM members WHERE id = $1`, [id], function(err, results) {
+        db.query(`DELETE FROM members WHERE id = $1`, [id], function (err, results) {
             if (err) throw `Database error! ${err}`
 
             callback()
+        })
+    },
+    paginate(params) {
+        let { filter, limit, offset, callback } = params
+
+        let query = '',
+            filterQuery = '',
+            totalQuery = `(
+            SELECT count(*) FROM members
+        ) As total`
+
+        if (filter) {
+            filterQuery = `
+            WHERE members.name ILIKE '%${filter}%'
+            OR members.email ILIKE '%${filter}%'
+            `
+
+            totalQuery = `(
+                SELECT count(*) FROM members
+                ${filterQuery}
+            ) AS total`
+        }
+
+        query = `
+        SELECT members.*, ${totalQuery}
+        FROM members
+        ${filterQuery}
+        LIMIT $1 OFFSET $2
+        `
+
+        db.query(query, [limit, offset], function (err, results) {
+            if (err) throw `Database error! ${err}`
+
+            callback(results.rows)
         })
     }
 }

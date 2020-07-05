@@ -98,7 +98,8 @@ module.exports = {
 
             callback()
         })
-    }, paginate(params) {
+    },
+    paginate(params) {
         let { filter, limit, offset, callback } = params
 
         let query = '',

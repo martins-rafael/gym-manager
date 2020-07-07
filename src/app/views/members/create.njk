@@ -1,5 +1,9 @@
 {% extends 'layout.njk' %}
 
+{% block head %}
+    <title>Novo Membro | Gym Manager</title>
+{% endblock %}
+
 {% block content %}
     <form class="card" method="POST" action="/members">
         <section class="avatar" style="background: url(https://source.unsplash.com/collection/3465564/500x500) no-repeat center center / cover; border-radius: 4px 0 0 4px;"></section>

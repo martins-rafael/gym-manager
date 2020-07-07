@@ -4,7 +4,7 @@ const instructors = require('./app/controllers/instructors')
 const members = require('./app/controllers/members')
 
 routes.get('/', function (req, res) {
-    return res.redirect('/instructors')
+    return res.render('home/index')
 })
 
 routes.get('/instructors', instructors.index)

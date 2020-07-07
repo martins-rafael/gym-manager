@@ -1,3 +1,7 @@
+/* ============
+==== GERAL ====
+============ */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
@@ -79,6 +83,122 @@ header {
     transition: width 700ms ease-in-out;
 }
 
+/* ============
+==== HOME ====
+============ */
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 100vw;
+    height: 100vh;
+}
+
+main .banner {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin: 20px;
+    background-image: url(../img/home-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    animation: from-left 700ms ease-out;
+}
+
+@keyframes from-left {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.banner h1 {
+    z-index: 1;
+    font-size: 5em;
+    color: #f5f5f5;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.5;
+    border-radius: 4px;
+}
+
+main .content {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr;
+}
+
+.content .card {
+    position: relative;
+    grid-template-columns: 1fr;
+    
+    margin: 20px 0;
+    width: calc(100% - 20px);
+    min-height: 200px;
+    font-size: 2em;
+    transition: .3s;
+}
+
+.content .card a {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #f5f5f5;
+}
+
+.content .card:hover {
+    filter: brightness(1.5);
+    box-shadow: 0 2px 6px -1px #000;
+}
+
+.content .card:last-of-type{
+    margin-top: 0;
+}
+
+.content .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.6;
+    border-radius: 4px;
+}
+
+.instructor-card {
+    background-image: url(../img/victor-freitas-nlZTjUZX2qo-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.member-card {
+    background-image: url(../img/members-card.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* ===========
+==== CARD ====
+=========== */
+
 .card {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -100,6 +220,10 @@ header {
         opacity: 1;
     }
 }
+
+/* ==============
+==== DETAILS ====
+============== */
 
 .details {
     padding: 32px
@@ -142,6 +266,10 @@ span.services {
     border-radius: 16px;
 }
 
+/* ===========
+==== FORM ====
+=========== */
+
 input,
 select {
     width: 100%;
@@ -173,6 +301,7 @@ button[type="submit"] {
     background-color: var(--primary-color);
     border-radius: 4px;
     cursor: pointer;
+    transition: .3s;
 }
 
 a.button {
@@ -182,10 +311,28 @@ a.button {
     text-decoration: none;
 }
 
+a.button:hover,
+button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 2px 6px -1px var(--primary-color);
+}
+
 #form-delete button {
     margin-top: 8px;
-    background-color: lightcoral;
+    font-weight: bold;
+    color: lightcoral;
+    background: none;
 }
+
+#form-delete button:hover {
+    color: #f5f5f5;
+    background-color: lightcoral;
+    box-shadow: 0 2px 6px -1px lightcoral;
+}
+
+/* ==================================
+==== INDEX INSTRUCTORS / MEMBERS ====
+================================== */
 
 .table-container {
     box-sizing: border-box;
@@ -254,6 +401,10 @@ tr a.button {
     text-transform: uppercase;
 }
 
+/* ==============
+==== FILTERS ====
+============== */
+
 .table-container .header {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -283,6 +434,10 @@ tr a.button {
 .table-container .header form button {
     margin: 0;
 }
+
+/* =================
+==== PAGINATION ====
+================= */
 
 .table-container .pagination {
     align-self: end;

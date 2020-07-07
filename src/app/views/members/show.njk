@@ -1,5 +1,9 @@
 {% extends 'layout.njk' %}
 
+{% block head %}
+    <title>{{member.name}} | Gym Manager</title>
+{% endblock %}
+
 {% block content %}
     <div class="card">
         <section class="avatar" style="background: url({{member.avatar_url}}) no-repeat center center / cover; border-radius: 4px 0 0 4px;"></section>

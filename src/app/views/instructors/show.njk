@@ -1,5 +1,9 @@
 {% extends 'layout.njk' %}
 
+{% block head %}
+    <title>{{instructor.name}} | Gym Manager</title>
+{% endblock %}
+
 {% block content %}
     <div class="card">
         <section class="avatar" style="background: url({{instructor.avatar_url}}) no-repeat center center / cover; border-radius: 4px 0 0 4px;"></section>
@@ -11,7 +15,7 @@
             </div>
             <div class="item">
                 <div>Idade</div>
-                <div>{{instructor.age}}</div>
+                <div>{{instructor.age}} anos</div>
             </div>
             <div class="item">
                 <div>Sexo</div>

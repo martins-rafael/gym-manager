@@ -121,7 +121,6 @@ Siga os passos abaixo:
     host: 'localhost',
     port: 5432,
     database: 'gymmanager'
-})
     })
     ```
 

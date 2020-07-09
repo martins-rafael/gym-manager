@@ -368,13 +368,13 @@ tbody tr:last-child td {
 
 tbody tr td:first-child {
     display: grid;
-    grid-template-columns: 64px 1fr;
+    grid-template-columns: 72px 1fr;
     align-items: center;
 }
 
 tbody tr td:first-child span {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     background-position: center;
     background-size: cover;
     border: 2px solid var(--primary-color);

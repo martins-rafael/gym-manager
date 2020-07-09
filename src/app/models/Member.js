@@ -129,6 +129,7 @@ module.exports = {
         SELECT members.*, ${totalQuery}
         FROM members
         ${filterQuery}
+        ORDER BY name ASC
         LIMIT $1 OFFSET $2
         `
 

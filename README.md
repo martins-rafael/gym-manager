@@ -5,6 +5,7 @@
 <p>
   <img src="https://img.shields.io/badge/made%20by-RAFAEL%20MARTINS-7159c1?style=flat-square">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/martins-rafael/gym-manager?color=7159c1&style=flat-square">
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/martins-rafael/gym-manager?color=7159c1&style=flat-square">
   <a href="https://opensource.org/licenses/MIT">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-7159c1?style=flat-square">
   </a>
@@ -13,7 +14,7 @@
   </a>
 </p>
 
-<img align="right" src=".github/dumbbell.png?raw=true" height="240">
+<img align="right" src=".github/dumbbell.png?raw=true" width="35%">
 
 ## Tópicos 
 
@@ -78,18 +79,26 @@ Siga os passos abaixo:
     git clone https://github.com/martins-rafael/gym-manager.git
     ```
     ou use a opção de download.
+    
+    <br>
 
 2) Entre na pasta com 
     ```
     cd gym-manager
     ```
+    
+    <br>
 
 3) Instale as dependências
     ```
     npm install
     ```
     
+    <br>
+    
 4) Utilizando a ferramenta Postbird, crie o banco de dados "gymmanager" **através da query** ```CREATE DATABASE gymmanager```. 
+
+<br>
 
 5) Crie a tabela com o nome **instructors** que possua os seguintes campos:
 - name: text;
@@ -98,6 +107,8 @@ Siga os passos abaixo:
 - services: text;
 - birth: timestamp without time zone;
 - created_at: timestamp without time zone;
+
+<br>
 
 6) Agora crie a tabela com o nome **members** que possua os campos abaixo:
 - name: text;
@@ -109,6 +120,8 @@ Siga os passos abaixo:
 - weight: integer;
 - height: integer;
 - instructor_id: integer;
+
+<br>
 
 7) Para configurar a conexão com o banco de dados, abra o arquivo ```db.js``` dentro da pasta ```src/config``` e edite a **linha 5** com o password cadastrado durante a instalação do Postgres.
     ```js
@@ -123,6 +136,8 @@ Siga os passos abaixo:
     database: 'gymmanager'
     })
     ```
+    
+    <br>
 
 8) Rode a aplicação
     ```

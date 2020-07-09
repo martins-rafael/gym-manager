@@ -69,7 +69,9 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 
 ## Instalação e uso
 
-Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/) instalado em sua máquina e seguir os passos abaixo:
+Para rodar a aplicação, você precisa ter instalado em sua máquina o [Node](https://nodejs.org/en/), o [Postgres](https://www.postgresql.org/) e o [Postbird](https://www.electronjs.org/apps/postbird).
+
+Siga os passos abaixo:
 
 1) Abra um terminal e copie este repositório com o comando
     ```
@@ -86,8 +88,44 @@ Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/) ins
     ```
     npm install
     ```
+    
+4) Utilizando a ferramenta Postbird, crie o banco de dados "gymmanager" **através da query** ```CREATE DATABASE gymmanager```. 
 
-4) Rode a aplicação
+5) Crie a tabela com o nome **instructors** que possua os seguintes campos:
+- name: text;
+- avatar_url: text;
+- gender: text;
+- services: text;
+- birth: timestamp without time zone;
+- created_at: timestamp without time zone;
+
+6) Agora crie a tabela com o nome **members** que possua os campos abaixo:
+- name: text;
+- avatar_url: text;
+- email: text;
+- gender: text;
+- birth: timestamp without time zone;
+- blood: text;
+- weight: integer;
+- height: integer;
+- instructor_id: integer;
+
+7) Para configurar a conexão com o banco de dados, abra o arquivo ```db.js``` dentro da pasta ```src/config``` e edite a **linha 5** com o password cadastrado durante a instalação do Postgres.
+    ```js
+    // conexão com banco de dados
+    const { Pool } = require('pg')
+
+    module.exports = new Pool ({
+    user: 'postgres', // default user
+    password: '0000', // altere com sua senha do postgres
+    host: 'localhost',
+    port: 5432,
+    database: 'gymmanager'
+})
+    })
+    ```
+
+8) Rode a aplicação
     ```
     npm start
     ```

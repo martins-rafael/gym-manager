@@ -99,7 +99,7 @@ Siga os passos abaixo:
 4) Crie e importe o banco de dados
     ```
     psql -U postgres -c "CREATE DATABASE gymmanager
-    psql -U postgres -c "CREATE DATABASE gymmanager"
+    psql -U postgres -d gymmanager <gymmanager.sql
     ```
     Você também pode criar e importar manualmente o banco de dados usando o Postbird ou pgAdmin.
     

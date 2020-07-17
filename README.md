@@ -70,7 +70,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 
 ## Instalação e uso
 
-Para rodar a aplicação, você precisa ter instalado em sua máquina o [Node](https://nodejs.org/en/), o [Postgres](https://www.postgresql.org/) e o [pgAdmin](https://www.pgadmin.org/).
+Para rodar a aplicação, você precisa ter instalado em sua máquina o [Node](https://nodejs.org/en/) e o [Postgres](https://www.postgresql.org/).
 
 Siga os passos abaixo:
 
@@ -96,11 +96,16 @@ Siga os passos abaixo:
     
     <br>
     
-4) Utilizando a ferramenta pgAdmin, importe o banco de dados ```gymmanager.sql```. 
-
+4) Crie e importe o banco de dados
+    ```
+    psql -U postgres -c "CREATE DATABASE gymmanager
+    psql -U postgres -c "CREATE DATABASE gymmanager"
+    ```
+    Você também pode criar e importar manualmente o banco de dados usando o Postbird ou pgAdmin.
+    
 <br>
 
-5) Para configurar a conexão com o banco de dados, abra o arquivo ```db.js``` dentro da pasta ```src/config``` e edite a **linha 5** com o password cadastrado durante a instalação do Postgres.
+5) Para configurar a conexão com o banco de dados, abra o arquivo ```db.js``` dentro da pasta ```src/config``` e edite-o com o user e password cadastrados durante a instalação do Postgres.
     ```js
     // conexão com banco de dados
     const { Pool } = require('pg')

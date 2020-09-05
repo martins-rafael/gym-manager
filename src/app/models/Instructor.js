@@ -125,7 +125,9 @@ module.exports = {
         FROM instructors
         LEFT JOIN members ON (members.instructor_id = instructors.id)
         ${filterQuery}
-        GROUP BY instructors.id LIMIT $1 OFFSET $2
+        GROUP BY instructors.id
+        ORDER BY instructors.name ASC
+        LIMIT $1 OFFSET $2
         `
 
         db.query(query, [limit, offset], function (err, results) {

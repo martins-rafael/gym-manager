@@ -15,10 +15,16 @@ module.exports = {
             limit,
             offset,
             callback(instructors) {
-                const pagination = {
-                    total: Math.ceil(instructors[0].total / limit),
-                    page
+                const pagination = {}
+
+                if (instructors.length == 0) {
+                    pagination.total = 1
+                    pagination.page = page
+                } else {
+                    pagination.total = Math.ceil(instructors[0].total / limit)
+                    pagination.page = page
                 }
+
                 return res.render('instructors/index', { instructors, filter, pagination })
             }
         }

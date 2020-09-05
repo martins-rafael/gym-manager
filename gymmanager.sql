@@ -18,13 +18,12 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE gymmanager;
+
 --
 -- TOC entry 2836 (class 1262 OID 16393)
 -- Name: gymmanager; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE gymmanager WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'Portuguese_Brazil.1252' LC_CTYPE = 'Portuguese_Brazil.1252';
 
 
 ALTER DATABASE gymmanager OWNER TO postgres;

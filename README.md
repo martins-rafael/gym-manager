@@ -73,58 +73,27 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 Para rodar a aplicação, você precisa ter instalado em sua máquina o [Node](https://nodejs.org/en/) e o [Postgres](https://www.postgresql.org/).
 
 Siga os passos abaixo:
-
-1) Abra um terminal e copie este repositório com o comando
-    ```
-    git clone https://github.com/martins-rafael/gym-manager.git
-    ```
-    ou use a opção de download.
+```bash
+# Abra um terminal e copie este repositório com o comando
+$ git clone https://github.com/martins-rafael/gym-manager.git
+# ou use a opção de download.
     
-    <br>
+# Entre na pasta com 
+$ cd gym-manager
 
-2) Entre na pasta com 
-    ```
-    cd gym-manager
-    ```
+# Instale as dependências
+$ npm install
     
-    <br>
+# Crie e importe o banco de dados
+$ psql -U postgres -c "CREATE DATABASE gymmanager"
+$ psql -U postgres -d gymmanager <gymmanager.sql
+# Você também pode criar e importar manualmente o banco de dados usando o Postbird ou pgAdmin.
+    
+# Conexão com o banco de dados: edite o arquivo db.js dentro da pasta src/config com o seu user e password do Postgres.
 
-3) Instale as dependências
-    ```
-    npm install
-    ```
-    
-    <br>
-    
-4) Crie e importe o banco de dados
-    ```
-    psql -U postgres -c "CREATE DATABASE gymmanager
-    psql -U postgres -d gymmanager <gymmanager.sql
-    ```
-    Você também pode criar e importar manualmente o banco de dados usando o Postbird ou pgAdmin.
-    
-<br>
-
-5) Para configurar a conexão com o banco de dados, abra o arquivo ```db.js``` dentro da pasta ```src/config``` e edite-o com o user e password cadastrados durante a instalação do Postgres.
-    ```js
-    // conexão com banco de dados
-    const { Pool } = require('pg')
-
-    module.exports = new Pool ({
-    user: 'postgres', // default user
-    password: '0000', // altere com sua senha do postgres
-    host: 'localhost',
-    port: 5432,
-    database: 'gymmanager'
-    })
-    ```
-    
-    <br>
-
-6) Rode a aplicação
-    ```
-    npm start
-    ```
+# Rode a aplicação
+$ npm start
+```
 
 <br>
 
